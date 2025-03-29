@@ -3,9 +3,7 @@ import React from 'react'
 
 const SignIn = () => {
     return (
-        <div className="">
-            Hello There my name is Jayesh......how are you 
-        </div>
+        <AuthForm type="sign-in" />
     )
 
 }

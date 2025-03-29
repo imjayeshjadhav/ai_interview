@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-const SignInLayout = ({children}:{children :ReactNode}) => {
+const SignUpLayout = ({children}:{children :ReactNode}) => {
   return (
     <div>
       {children}
@@ -8,4 +8,4 @@ const SignInLayout = ({children}:{children :ReactNode}) => {
   )
 }
 
-export default SignInLayout
+export default SignUpLayout
