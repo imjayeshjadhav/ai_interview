@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import DisplayTechIcons from './DisplayTechIcons';
 
-const InterviewCard = ({ userId, interviewId, role, type ,techstack ,createdAt}: InterviewCardProps) => {
+const InterviewCard = ({ userId, id, role, type ,techstack ,createdAt}: InterviewCardProps) => {
     const feedback = null as Feedback | null;
 
     const normalizedType = /mix/gi.test(type) ? 'Mixed' :type;
@@ -39,7 +39,7 @@ const InterviewCard = ({ userId, interviewId, role, type ,techstack ,createdAt}:
         <div className="flex flex-row justify-between">
           <DisplayTechIcons techStack={techstack} />
           <Button className="btn-primary">
-            <Link href={feedback ? `/interview/${interviewId}/feedback` : `/interview/${interviewId}`}> 
+            <Link href={feedback ? `/interview/${id}/feedback` : `/interview/${id}`}> 
               {feedback ? 'Check Feedback':'View Interview'}
             </Link>
           </Button>
