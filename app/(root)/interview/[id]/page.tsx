@@ -1,7 +1,7 @@
 import Agent from '@/components/Agent';
 import DisplayTechIcons from '@/components/DisplayTechIcons';
 import { getCurrentUser } from '@/lib/actions/auth.action';
-import { getInterviewsById } from '@/lib/actions/general.actions';
+import { getInterviewById } from '@/lib/actions/general.actions';
 import { getRandomInterviewCover } from '@/lib/utils';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
@@ -11,7 +11,7 @@ const InterviewPage =  async({params} :RouteParams) => {
   
     const {id} = await params;
     const user = await getCurrentUser()
-    const interview = await getInterviewsById(id);
+    const interview = await getInterviewById(id);
 
     if (!interview) redirect('/')
 
@@ -28,7 +28,7 @@ const InterviewPage =  async({params} :RouteParams) => {
             <p className='bg-dark-200 px-4 py-2 rounded-lg h-fit capitalize'>{interview.type}</p>
 
         </div>
-        <Agent userName={user?.name} type={user?.type} type="interview" interviewId={id} questions={interview.questions} />
+        <Agent userName={user?.name || ''} userId={user?.id} type="interview" interviewId={id} questions={interview.questions} />
     </>
   )
 }
